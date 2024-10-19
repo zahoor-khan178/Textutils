@@ -1,0 +1,60 @@
+
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .light-mode {
+    background-color: white;
+    color: black;
+  }
+  
+  .dark-mode {
+    background-color: #333;
+    color: white;
+  }
+
+
+nav{
+
+    background-color: rgb(74, 8, 136);
+}
+
+.nav-link,.navbar-brand{
+
+    color: white;
+}
+#searchbutton{
+
+    background-color: rgb(8, 175, 8);
+    color: white;
+    
+}
+
+#clear{
+
+    background-color: RED;
+    border: none;
+}
+
+.nav-link:hover,
+.navbar-brand:hover {
+    color: white;
+}
+.alert{
+  
+    position: fixed;
+   top:  0px;
+    height: 100px;
+    width: 400px;
+    left: 400px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 1px ;
+    color: black;
+    text-align: center;
+    align-content: center;
+    display: none;
+}
+
+
+
