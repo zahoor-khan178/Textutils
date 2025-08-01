@@ -1,0 +1,99 @@
+/* Base Styles */
+.textbox-container {
+  /* min-height: 100vh; */
+  
+  padding: 2vw;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%;
+  z-index: 2;
+  /* margin-top: 4vw; */
+}
+
+.container {
+  padding: 2vw;
+  margin-top: 15vh;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+.textbox-container.light {
+  background-color: white;
+  color: black;
+}
+
+.container.light {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+/* Dark Mode */
+.form-control.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.my-5{
+
+    background-color: #121212;
+    width: 100%;
+}
+
+.container.dark {
+    background-color: #1f1f1f;
+    background-color: #1d1b1b;
+  color: white;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-container {
+  position: absolute;
+  right: 2vw;
+  top: 7vw;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 50px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #ccc;
+  padding: 3px;
+  transition: background-color 0.3s;
+}
+
+.dark-mode-container.dark{
+
+    border: 2px solid white;
+    background-color: #121212;
+}
+
+.dark-mode-button {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: margin-left 0.3s;
+}
+
+.dark-mode-button.dark {
+  margin-left: calc(100% - 13px); /* adjusted for padding */
+    background-color: white;
+}
+
+.form-label.dark{
+
+    background-color: #121212;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Alert */
+.alert {
+  display: none;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}

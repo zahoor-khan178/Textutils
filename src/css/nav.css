@@ -1,0 +1,31 @@
+
+
+
+.navbar{
+
+/* background-color: aqua; */
+text-align: center;
+width: 100%;
+position: fixed;
+z-index: 1;
+
+}
+  .navbar-brand{
+    color: white;
+    width: auto;
+    height: auto;
+    margin-left: calc(50% - 80px);
+
+    font-size: 2vw;
+
+  }
+
+  /* .container-fluid{
+
+    
+    text-align: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  } */
