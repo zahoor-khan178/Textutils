@@ -20,10 +20,7 @@ export default function Navbar(props) {
         </li>
         
       </ul>
-      {/* <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit" id='searchbutton'>Search</button>
-      </form> */}
+    
     </div>
   </div>
 </nav>
@@ -32,11 +29,6 @@ export default function Navbar(props) {
 
 Navbar.propTypes={title: PropTypes.string.isRequired,  abouttext: PropTypes.string}  //  determine the type data passed through props.
 
-// Navbar.defaultProps={   // the default values if the props are not passed 
 
-//   title:'this my titel ',
-//   abouttext:'this my text'
-
-// }
 
 
