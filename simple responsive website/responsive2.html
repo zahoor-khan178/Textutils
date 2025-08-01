@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            min-width: 100vw;
+            min-height: 100vh;
+            /* border: 5px solid red; */
+            height: fit-content;
+
+
+        }
+
+
+
+
+
+        nav {
+
+
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            /* background-color: rgb(231, 231, 199); */
+            background-color: #c5aa6a;
+            /* background-color: rgba(197, 170, 106, 0.8); */
+            position: fixed;
+            z-index: 10;
+
+
+        }
+
+
+
+        #logo {
+            display: none;
+        }
+
+        #logo-div {
+
+            /* border: 2px solid black; */
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 12%;
+
+        }
+
+        .nav-parent {
+            display: none;
+        }
+
+
+        #humberger-div {
+
+            /* border: 2px solid green; */
+            height: 100%;
+            width: 12%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .main-menu {
+
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            background-color: black;
+            z-index: 9;
+
+
+        }
+
+        .main-menu-child {
+
+            border-bottom: 1px solid white;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+
+
+
+
+
+        }
+
+        .content-and-image {
+
+
+            display: grid;
+
+            z-index: -10;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+
+
+        .content,
+        .img {
+
+            /* border: 5px solid blue; */
+            width: 100%;
+            height: fit-content;
+        }
+
+        .content {
+
+
+            display: grid;
+            justify-items: center;
+            align-items: flex-start;
+
+            row-gap: 4vh;
+
+
+        }
+
+        #start {
+
+            background-color: black;
+            color: white;
+            font-family:"Roboto Mono", monospace;;
+
+
+        }
+
+        .background-images {
+
+
+
+            /* border: 2px solid black; */
+            position: relative;
+            /* margin-top: 60vh; */
+
+
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            justify-items: center;
+            align-items: center;
+            position: relative;
+
+
+
+        }
+
+        footer {
+            width: fit-content;
+            height: fit-content;
+            /* border: 7px solid blue; */
+            background-color: #6f9196;
+        }
+    </style>
+
+    <link rel="stylesheet" href="query2.css">
+</head>
+
+<body>
+    <nav>
+        <div id="logo-div">
+
+
+
+            <img src="logo1.svg" alt="" id="logo">
+
+        </div>
+
+        <div class="nav-parent">
+
+            <div class="nav-child">Home </div>
+            <div class="nav-child">About</div>
+            <div class="nav-child">Services</div>
+            <div class="nav-child">Projects</div>
+            <div class="login-sign">
+                <div class="login">Login</div>
+                <div class="sign">Sign up</div>
+            </div>
+        </div>
+        <div id="humberger-div">
+            <img src="humberger.png" alt="" id="hum-berger">
+    </nav>
+
+
+    <div class="main-menu">
+        <div class="main-menu-child">home</div>
+        <div class="main-menu-child">about</div>
+        <div class="main-menu-child">services</div>
+        <div class="main-menu-child" style="border: none; ">projects</div>
+    </div>
+
+    <section class="content-and-image">
+
+        <div class="content">
+
+            <h1> My First Code</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum dolore molestiae, ipsa, facilis quos
+                voluptatum saepe quasi eum minus enim doloribus quae expedita perferendis iusto beatae maiores facere
+                fugit provident ipsam, eius dicta molestias exercitationem. Eligendi reiciendis mollitia possimus est!
+                facere
+                fugit provident ipsam, eius dicta molestias exercitationem. Eligendi reiciendis mollitia possimus est!
+                iusto beatae maiores facere
+                fugit provident ipsam, eius dicta molestias exercitationem. Eligendi reiciendis mollitia possimus est!
+                facere
+                fugit provident ipsam, eius dicta molestias exercitationem. Eligendi reiciendis mollitia possimus est!
+            </p>
+            <button type="button" id="start">START</button>
+        </div>
+        <div class="img">
+
+            <img src="picture.jpg" alt="pictue not loaded" id="picture">
+        </div>
+    </section>
+
+
+    <section class="background-images">
+
+        <img src="background1.jpg" alt="" class="background1  background">
+        <img src="background2.jpg" alt="" class="background2  background">
+        <img src="background3.jpg" alt="" class="background3  background">
+        <img src="background4.jpg" alt="" class="background4  background">
+        <img src="background5.jpg" alt="" class="background5  background">
+        <img src="background6.jpg" alt="" class="background6  background">
+
+    </section>
+
+
+    <footer>
+
+        <div class="footer-div">
+
+            <div class="footer-child">
+
+                <h1>home</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi eius impedit facilis nobis,
+                    temporibus quas necessitatibus ea eos deserunt dignissimos dolorem dolor laboriosam placeat est.
+                    Unde inventore atque eius optio!</p>
+
+            </div>
+            <div class="footer-child">
+
+                <h1>about</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi eius impedit facilis nobis,
+                    temporibus quas necessitatibus ea eos deserunt dignissimos dolorem dolor laboriosam placeat est.
+                    Unde inventore atque eius optio!</p>
+            </div>
+            <div class="footer-child">
+
+                <h1>services</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi eius impedit facilis nobis,
+                    temporibus quas necessitatibus ea eos deserunt dignissimos dolorem dolor laboriosam placeat est.
+                    Unde inventore atque eius optio!</p>
+            </div>
+            <div class="footer-child">
+
+                <h1>projects</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi eius impedit facilis nobis,
+                    temporibus quas necessitatibus ea eos deserunt dignissimos dolorem dolor laboriosam placeat est.
+                    Unde inventore atque eius optio!</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+
+
+        const element = document.getElementById("hum-berger");
+        const mainMenu = document.querySelector(".main-menu");
+        let menuVisible = false;
+
+        function checkScreenWidth() {
+            if (window.innerWidth <= 1200) {
+                mainMenu.style.display = "none";
+                menuVisible = false;
+            } else if (menuVisible) {
+                mainMenu.style.display = "flex";
+            }
+        }
+
+        element.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            if (window.innerWidth <= 1200) {
+
+
+                if (menuVisible) {
+                    mainMenu.style.display = "none";
+                    menuVisible = false;
+                } else {
+                    mainMenu.style.display = "flex";
+                    menuVisible = true;
+                }
+
+            }
+
+        });
+
+
+        checkScreenWidth();
+
+
+        window.addEventListener("resize", checkScreenWidth);
+
+
+
+    </script>
+
+</body>
+
+</html>

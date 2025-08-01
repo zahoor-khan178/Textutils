@@ -1,7 +1,16 @@
 
-import React from 'react'
+
+import { useContext } from 'react';
+import MessageContext from './MessageContext';
+import '../css/nav.css'
 import PropTypes from 'prop-types'
 import '../Appa.css'
+
+
+
+
+
+
 
 
 export default function Navbar(props) {
@@ -13,10 +22,10 @@ export default function Navbar(props) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link" aria-current="page" href="/">Home</a>
+          {/* <a className="nav-link" aria-current="page" href="/">Home</a> */}
         </li>
         <li className="nav-item">
-          <a  className="nav-link" href="/">{props.abouttext}</a>
+          {/* <a  className="nav-link" href="/">{props.abouttext}</a> */}
         </li>
         
       </ul>
