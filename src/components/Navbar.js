@@ -1,43 +1,25 @@
-
-
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import MessageContext from './MessageContext';
-import '../css/nav.css'
-import PropTypes from 'prop-types'
-import '../Appa.css'
-
-
-
-
-
-
-
+import '../css/nav.css';
+import PropTypes from 'prop-types';
+import '../Appa.css';
 
 export default function Navbar(props) {
+  const { darkMode, toggleDarkMode } = useContext(MessageContext);
+
   return (
-    <nav className="navbar navbar-expand-lg"  >
-  <div className="container-fluid">
-    <a className="navbar-brand" href="/">{props.title}</a>
-   
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          {/* <a className="nav-link" aria-current="page" href="/">Home</a> */}
-        </li>
-        <li className="nav-item">
-          {/* <a  className="nav-link" href="/">{props.abouttext}</a> */}
-        </li>
-        
-      </ul>
-    
-    </div>
-  </div>
-</nav>
-  )
+    <nav className={`navbar navbar-expand-lg ${darkMode ? 'dark' : 'light'}`}>
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">{props.title}</a>
+        <div className={`dark-container ${darkMode ? 'dark' : 'light'}`} onClick={toggleDarkMode}>
+          <div className={`dark-container-button ${darkMode ? 'dark' : 'light'}`}></div>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-Navbar.propTypes={title: PropTypes.string.isRequired,  abouttext: PropTypes.string}  //  determine the type data passed through props.
-
-
-
-
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  abouttext: PropTypes.string,
+};
