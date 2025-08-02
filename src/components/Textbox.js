@@ -88,6 +88,7 @@ export default function Textbox(props) {
       return;
     }
 
+    
     if (!recognitionRef.current) {
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;
@@ -106,6 +107,18 @@ export default function Textbox(props) {
 
     recognitionRef.current.start();
   };
+
+  const speakText = () => {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    window.speechSynthesis.cancel(); // Stop previous speech
+    window.speechSynthesis.speak(utterance);
+  } else {
+    alert('Speech Synthesis not supported in this browser.');
+  }
+};
+
 
   return (
     <>
@@ -135,6 +148,7 @@ export default function Textbox(props) {
   <button className="btn btn-secondary uniform-btn" onClick={undo}>Undo</button>
   <button className="btn btn-secondary uniform-btn" onClick={redo}>Redo</button>
   <button className="btn btn-success uniform-btn" onClick={startListening}>Start Listening</button>
+    <button className="btn btn-warning uniform-btn" onClick={speakText}>Speak Text</button>
 </div>
 
 <div className=" my-button-group">
