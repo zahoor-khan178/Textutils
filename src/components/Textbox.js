@@ -7,12 +7,13 @@ export default function Textbox(props) {
   const [text, setText] = useState('');
   const [history, setHistory] = useState([]);
   const [redoStack, setRedoStack] = useState([]);
+  const [listening, setListening] = useState(false);
 
   const recognitionRef = useRef(null);
 
   const updateText = (newText) => {
-    setHistory([...history, text]);  // Push current to undo history
-    setRedoStack([]);                // Clear redo stack
+    setHistory([...history, text]);
+    setRedoStack([]);
     setText(newText);
   };
 
@@ -88,7 +89,6 @@ export default function Textbox(props) {
       return;
     }
 
-    
     if (!recognitionRef.current) {
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;
@@ -97,28 +97,38 @@ export default function Textbox(props) {
 
       recognitionRef.current.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
-        updateText(text + ' ' + transcript);
+        updateText(prev => prev + ' ' + transcript);
       };
 
       recognitionRef.current.onerror = (event) => {
         console.error('Speech recognition error', event.error);
+        setListening(false);
+      };
+
+      recognitionRef.current.onend = () => {
+        setListening(false);
       };
     }
 
-    recognitionRef.current.start();
+    if (!listening) {
+      recognitionRef.current.start();
+      setListening(true);
+    } else {
+      recognitionRef.current.stop();
+      setListening(false);
+    }
   };
 
   const speakText = () => {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    window.speechSynthesis.cancel(); // Stop previous speech
-    window.speechSynthesis.speak(utterance);
-  } else {
-    alert('Speech Synthesis not supported in this browser.');
-  }
-};
-
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert('Speech Synthesis not supported in this browser.');
+    }
+  };
 
   return (
     <>
@@ -138,26 +148,27 @@ export default function Textbox(props) {
           ></textarea>
 
           {/* Basic Actions */}
-         <button className="btn btn-primary uniform-btn my-3" onClick={handle}>Uppercase</button>
-<button className="btn btn-primary uniform-btn my-3" onClick={lower}>Lowercase</button>
-<button className="btn btn-primary uniform-btn my-3" onClick={withoutspace}>Remove Spaces</button>
-<button className="btn btn-primary uniform-btn my-3" onClick={copytext}>Copy</button>
-<button className="btn btn-primary uniform-btn my-3" onClick={clear}>Clear</button>
+          <button className="btn btn-primary uniform-btn my-3" onClick={handle}>Uppercase</button>
+          <button className="btn btn-primary uniform-btn my-3" onClick={lower}>Lowercase</button>
+          <button className="btn btn-primary uniform-btn my-3" onClick={withoutspace}>Remove Spaces</button>
+          <button className="btn btn-primary uniform-btn my-3" onClick={copytext}>Copy</button>
+          <button className="btn btn-primary uniform-btn my-3" onClick={clear}>Clear</button>
 
-<div className=" my-button-group">
-  <button className="btn btn-secondary uniform-btn" onClick={undo}>Undo</button>
-  <button className="btn btn-secondary uniform-btn" onClick={redo}>Redo</button>
-  <button className="btn btn-success uniform-btn" onClick={startListening}>Start Listening</button>
-    <button className="btn btn-warning uniform-btn" onClick={speakText}>Speak Text</button>
-</div>
+          <div className="my-button-group">
+            <button className="btn btn-secondary uniform-btn" onClick={undo}>Undo</button>
+            <button className="btn btn-secondary uniform-btn" onClick={redo}>Redo</button>
+            <button className="btn btn-success uniform-btn" onClick={startListening}>
+              {listening ? 'Stop Listening' : 'Start Listening'}
+            </button>
+            <button className="btn btn-warning uniform-btn" onClick={speakText}>Speak Text</button>
+          </div>
 
-<div className=" my-button-group">
-  <button className="btn btn-info uniform-btn" onClick={extractLinks}>Extract Links</button>
-  <button className="btn btn-info uniform-btn" onClick={extractNumbers}>Extract Numbers</button>
-  <button className="btn btn-info uniform-btn" onClick={extractTextOnly}>Extract Letters</button>
-  <button className="btn btn-info uniform-btn" onClick={extractSpecialChars}>Extract Special Chars</button>
-</div>
-
+          <div className="my-button-group">
+            <button className="btn btn-info uniform-btn" onClick={extractLinks}>Extract Links</button>
+            <button className="btn btn-info uniform-btn" onClick={extractNumbers}>Extract Numbers</button>
+            <button className="btn btn-info uniform-btn" onClick={extractTextOnly}>Extract Letters</button>
+            <button className="btn btn-info uniform-btn" onClick={extractSpecialChars}>Extract Special Chars</button>
+          </div>
         </div>
 
         {/* Summary */}
