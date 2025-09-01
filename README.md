@@ -25,4 +25,6 @@ This project is developed using the following technologies:
   - **Copy Text**: Copies the processed text to the clipboard.
   - **Clear Text**: Clears the input and output areas.
 
+## Live Demo
 
+🔗 Check out the live demo here: [TextUtils Live Demo](https://zahoor-khan178.github.io/Textutils/)
