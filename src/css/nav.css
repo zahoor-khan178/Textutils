@@ -62,6 +62,17 @@ z-index: 1;
     background-color: white;
 }
 
+span{
+  
+display: inline-block;
+font-size: 11px;
+width: fit-content;
+color: white;
+margin-top:35px;
+font-weight: 500;
+
+}
+
   /* .container-fluid{
 
     

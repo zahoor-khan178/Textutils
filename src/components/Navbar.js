@@ -14,6 +14,7 @@ export default function Navbar(props) {
         <div className={`dark-container ${darkMode ? 'dark' : 'light'}`} onClick={toggleDarkMode}>
           <div className={`dark-container-button ${darkMode ? 'dark' : 'light'}`}></div>
         </div>
+          <span>{darkMode ? 'Disable dark mode' : 'Enable dark mode'}</span>
       </div>
     </nav>
   );
